@@ -1,4 +1,26 @@
 fieldset {
     display: flex;
     flex-direction: column;
+    background-color: rgb(71, 119, 173);
+    width: 530px;
+}
+
+div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+img {
+    width: auto;
+    height: 100px;
+}
+
+.arrow {
+    width: 550px;
+    height: auto;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
 }
