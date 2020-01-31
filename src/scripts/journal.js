@@ -6,4 +6,9 @@
     to get the data and display it.
 */
 
+import API from "./data.js";
+import renderEntries from "./entriesDOM.js";
+// import submit from "./input.js";
+
 API.getEntries().then(renderEntries);
+// submit();

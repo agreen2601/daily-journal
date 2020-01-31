@@ -1,6 +1,6 @@
-const makeJournalEntryComponent = (journalEntries) => {
-    return `
-    <hr class="line"></hr>
+const makeJournalEntryComponent = journalEntries => {
+  return `
+    <hr class="line">
         <div class="journal-entries">
             <p class="dateOutput"><strong>Date:</strong> ${journalEntries.date}</p>
             </div><div>
@@ -13,7 +13,7 @@ const makeJournalEntryComponent = (journalEntries) => {
         `;
 };
 
-
+export default makeJournalEntryComponent;
 
 /*  This code could be used to create different elements w different classes/ids
 

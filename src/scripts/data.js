@@ -8,8 +8,11 @@
 // };
 
 const API = {
-    getEntries: function () {
-        return fetch("http://localhost:3000/journalEntries")
-            .then(response => response.json())
-    }
+  getEntries: function() {
+    return fetch("http://localhost:3000/journalEntries").then(response =>
+      response.json()
+    );
+  }
 };
+
+export default API;

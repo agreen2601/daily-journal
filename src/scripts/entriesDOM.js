@@ -1,13 +1,13 @@
-// .then(entriesFromAPI => {
-//     renderEntries(entriesFromAPI)
-// });
+import makeJournalEntryComponent from "./entryComponent.js";
 
-const renderEntries = (entries) => {
-    const container = document.querySelector("#entriesContainer");
-    entries.forEach(entry => {
-        const innerHTML = makeJournalEntryComponent(entry)
-        container.innerHTML += innerHTML
-    });
+const renderEntries = entries => {
+  const container = document.querySelector("#entriesContainer");
+  entries.forEach(entry => {
+    const innerHTML = makeJournalEntryComponent(entry);
+    container.innerHTML += innerHTML;
+  });
 };
 
-const journalEntryContainer = document.querySelector("#entriesContainer")
+const journalEntryContainer = document.querySelector("#entriesContainer");
+
+export default renderEntries;

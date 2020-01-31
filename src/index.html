@@ -13,61 +13,65 @@
 
     <h1>Daily Journal</h1>
 
-    <form>
+    <form id="form">
         <fieldset>
-            <label for="journalDate">Date of entry:</label>
+            <label for="journalDate" class="label">Date of entry:</label>
             <input type="date" name="journalDate" id="journalDate">
         </fieldset>
 
         <fieldset>
             <label class="label">Concepts covered:</label>
-            <input type="text">
+            <input id="conceptsInput" type="text">
         </fieldset>
 
         <fieldset>
             <label class="label">Journal Entry:</label>
-            <textarea></textarea>
+            <textarea id="entryInput"></textarea>
         </fieldset>
 
         <fieldset>
-            <label class="label">Mood:</label>
-            <select>
+            <label class="mood">Mood:</label>
+            <select id="mood">
                 <option value="King ruling the castle">King ruling the castle</option>
                 <option value="Duke gallivanting through the flying buttress">Duke gallivanting through the flying
                     buttress</option>
                 <option value="Groundskeeper maintaining the manor">Groundskeeper maintaining the manor</option>
-                <option value="Knight fighting in the battle">Knight fighting in the battle</option>
                 <option value="Servant obeying his master">Servant obeying his master</option>
+                <option value="Knight fighting in the battle">Knight fighting in the battle</option>
                 <option value="Peasant laboring in the field">Peasant laboring in the field</option>
                 <option value="Prisoner wasting away in the dugeon">Prisoner wasting away in the dugeon</option>
             </select>
         </fieldset>
-
-        <input type="submit" value="Smash"/>
-
-        <div>
-            <img src="https://thumbs.dreamstime.com/z/cartoon-king-idea-happy-41818993.jpg">
-            <img
-                src="https://s3.amazonaws.com/lowres.cartoonstock.com/caricatures-king_of_england-william_the_bastard-battle_of_hastings-monarchy-ruler-gbrn817_low.jpg">
-            <img
-                src="https://img.favpng.com/13/7/20/watering-cans-gardening-gardener-bucket-png-favpng-uPYzFkzRcsKnSAhaa6k95fgZa.jpg">
-            <img src="https://images.freeimages.com/images/premium/previews/4328/43287556-cartoon-knight-in-armor.jpg">
-            <img src="https://www.jing.fm/clipimg/full/77-772437_butler-holding-tray-servant-free-clipart.png">
-            <img src="https://thumbs.dreamstime.com/b/farmer-grandfather-adult-rancher-old-age-man-peasant-character-cartoon-villager-isolated-flat-design-vector-illustration-farmer-109192197.jpg">
-            <img
-                src="https://i.pinimg.com/236x/56/4c/39/564c396ab7e88a28a617eee48d922a5b--royalty-free-clipart-art-medieval.jpg">
-        </div>
-
-        <br>
-
-        <img class="arrow"
-            src="https://st2.depositphotos.com/1896403/10833/i/950/depositphotos_108334964-stock-photo-message-bad-times-versus-good.jpg">
     </form>
-    <br>
-    <br>
-    <article id="entries-container"></article>
+
+    <input id="submit" type="submit" value="Submit your plight" />
+
+    <br></br>
+
+    <div class="cartoonCollection">
+        <img class="cartoons" src="https://thumbs.dreamstime.com/z/cartoon-king-idea-happy-41818993.jpg">
+        <img class="cartoons"
+            src="https://s3.amazonaws.com/lowres.cartoonstock.com/caricatures-king_of_england-william_the_bastard-battle_of_hastings-monarchy-ruler-gbrn817_low.jpg">
+        <img class="cartoons"
+            src="https://img.favpng.com/13/7/20/watering-cans-gardening-gardener-bucket-png-favpng-uPYzFkzRcsKnSAhaa6k95fgZa.jpg">
+        <img class="cartoons"
+            src="https://www.jing.fm/clipimg/full/77-772437_butler-holding-tray-servant-free-clipart.png">
+        <img class="cartoons"
+            src="https://images.freeimages.com/images/premium/previews/4328/43287556-cartoon-knight-in-armor.jpg">
+        <img class="cartoons"
+            src="https://thumbs.dreamstime.com/b/farmer-grandfather-adult-rancher-old-age-man-peasant-character-cartoon-villager-isolated-flat-design-vector-illustration-farmer-109192197.jpg">
+        <img class="cartoons"
+            src="https://i.pinimg.com/236x/56/4c/39/564c396ab7e88a28a617eee48d922a5b--royalty-free-clipart-art-medieval.jpg">
+    </div>
+
+    <h2>Triumphs and grievances of past</h2>
+
+    <article id="entriesContainer"></article>
+    <article id="submissionsContainer"></article>
 
     <script type="module" src="scripts/journal.js"></script>
+    <!-- <script type="module" src="scripts/input.js"></script> -->
+
 </body>
 
 </html>

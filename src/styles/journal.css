@@ -1,30 +1,78 @@
 fieldset {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(71, 119, 173);
-    width: 530px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(71, 119, 173);
 }
 
-div {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
+h1 {
+  text-align: center;
+  font-size: 3em;
 }
 
-img {
-    width: auto;
-    height: 100px;
+#submit {
+  margin: 20px 0;
+  width: 100%;
 }
 
-.arrow {
-    width: 550px;
-    height: auto;
+.cartoonCollection {
+  display: flex;
+  margin-bottom: 100px;
+  justify-content: space-between;
+}
+
+.cartoons {
+  width: auto;
+  height: 150px;
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
-.line{
-    height: 1px;
+.line {
+  height: 3px;
+  width: 100%;
+  background: black;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: xx-large;
+}
+
+select,
+#journalDate,
+#entryInput,
+#conceptsInput,
+#submit,
+.label,
+.mood {
+  font-size: 1.2em;
+  font-family: "Courier New", Courier, monospace;
+}
+
+select {
+  height: 1.5em;
+}
+
+.dateOutput {
+  font-size: x-large;
+}
+
+.moodOutput {
+  font-size: larger;
+}
+
+#entryInput {
+  width: 80%;
+  height: 100px;
+}
+
+#conceptsInput {
+  width: 50%;
+}
+
+.options {
+  margin-bottom: 40px;
 }
