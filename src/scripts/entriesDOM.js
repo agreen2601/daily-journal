@@ -8,6 +8,4 @@ const renderEntries = entries => {
   });
 };
 
-const journalEntryContainer = document.querySelector("#entriesContainer");
-
 export default renderEntries;
