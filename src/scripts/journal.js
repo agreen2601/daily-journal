@@ -28,4 +28,15 @@ const submitEntryAddEventListener = () => {
   });
 };
 
+document.getElementsByName("mood").forEach(button =>
+  button.addEventListener("click", event => {
+    const mood = event.target.value;
+    API.getEntries().then(entries => {
+      const selectedMoodArray = entries.filter(entry => entry.mood === mood);
+      document.getElementById("entriesContainer").innerHTML = "";
+      renderEntries(selectedMoodArray);
+    });
+  })
+);
+
 submitEntryAddEventListener();

@@ -1,12 +1,24 @@
 fieldset {
   display: flex;
   flex-direction: column;
+}
+
+#form {
   background-color: rgb(71, 119, 173);
 }
 
 h1 {
   text-align: center;
-  font-size: 3em;
+  font-size: 2em;
+}
+
+.mood_radio_button {
+  line-height: 130%;
+}
+
+legend {
+  font-size: larger;
+  font-weight: 600;
 }
 
 #submit {
@@ -16,7 +28,7 @@ h1 {
 
 .cartoonCollection {
   display: flex;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   justify-content: space-between;
 }
 
@@ -30,15 +42,13 @@ body {
 }
 
 .line {
-  height: 3px;
-  width: 100%;
+  height: 1px;
   background: black;
-  margin: auto;
 }
 
-h2 {
+.triumphs {
   text-align: center;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 select,
@@ -48,7 +58,7 @@ select,
 #submit,
 .label,
 .mood {
-  font-size: 1.2em;
+  font-size: 1em;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -56,12 +66,8 @@ select {
   height: 1.5em;
 }
 
-.dateOutput {
-  font-size: x-large;
-}
-
-.moodOutput {
-  font-size: larger;
+.dateOutput, .moodOutput {
+  font-size: large;
 }
 
 #entryInput {
