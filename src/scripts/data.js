@@ -12,6 +12,11 @@ const API = {
       },
       body: JSON.stringify(entry)
     });
+  },
+  deleteEntry(entryId) {
+    return fetch(`http://localhost:3000/journalEntries/${entryId}`, {
+      method: "DELETE"
+    }).then(response => response.json());
   }
 };
 

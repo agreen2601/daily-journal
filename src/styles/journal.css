@@ -33,8 +33,8 @@ legend {
 }
 
 .cartoons {
-  width: auto;
-  height: 150px;
+  min-width: 30px;
+  height: 120px;
 }
 
 body {
@@ -44,11 +44,26 @@ body {
 .line {
   height: 1px;
   background: black;
+  width: 100%;
+}
+
+.delete_button:hover,
+#submit:hover {
+  background-color: lightgray;
+}
+
+.delete_button {
+  position: absolute;
+  right: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8em;
+  background-color: rgb(240, 240, 240);
 }
 
 .triumphs {
   text-align: center;
   font-size: x-large;
+  margin: 40px 0 10px 0;
 }
 
 select,
@@ -66,7 +81,8 @@ select {
   height: 1.5em;
 }
 
-.dateOutput, .moodOutput {
+.dateOutput,
+.moodOutput {
   font-size: large;
 }
 

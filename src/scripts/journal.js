@@ -3,6 +3,10 @@ import renderEntries from "./entriesDOM.js";
 
 API.getEntries().then(renderEntries);
 
+const entriesList = document.querySelector("#entriesContainer");
+
+// First check for no blank fields - then add new entry to the DOM
+
 const submitEntryAddEventListener = () => {
   const submitButton = document.getElementById("submit");
 
@@ -14,7 +18,7 @@ const submitEntryAddEventListener = () => {
     ) {
       alert("You must complete the entire form you baffling mumblecrust!");
     } else {
-      document.getElementById("entriesContainer").innerHTML = "";
+      entriesList.innerHTML = "";
       const newJournalEntry = {
         date: document.querySelector("#journalDate").value,
         conceptsCovered: document.querySelector("#conceptsInput").value,
@@ -28,15 +32,34 @@ const submitEntryAddEventListener = () => {
   });
 };
 
+submitEntryAddEventListener();
+
+// Sort entries by mood
+
 document.getElementsByName("mood").forEach(button =>
   button.addEventListener("click", event => {
     const mood = event.target.value;
     API.getEntries().then(entries => {
       const selectedMoodArray = entries.filter(entry => entry.mood === mood);
-      document.getElementById("entriesContainer").innerHTML = "";
+      entriesList.innerHTML = "";
       renderEntries(selectedMoodArray);
     });
   })
 );
 
-submitEntryAddEventListener();
+//Delete entries
+
+entriesList.addEventListener("click", event => {
+  var check = confirm("Dost thou verily wish to forget thy past?");
+  if (check == true ) {
+    if (event.target.id.startsWith("deleteEntry-")) {
+      const eventToDelete = event.target.id.split("-")[1];
+      API.deleteEntry(eventToDelete)
+        .then(API.getEntries)
+        .then(renderEntries);
+    }
+    alert("The king remembers your wrong-doing, foolish swine!");
+  } else {
+    alert("Wise choice friend")
+  }
+});
