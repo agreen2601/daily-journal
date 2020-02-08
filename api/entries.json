@@ -1,39 +1,46 @@
 {
   "journalEntries": [
     {
-      "id": 1,
-      "date": "01/08/2020",
+      "date": "2020-01-08",
       "conceptsCovered": "HTML CSS & Github",
-      "longForm": "Built a webpage about the Belcourt Theatre and learned an intro to Git",
-      "mood": "King ruling the castle"
+      "longForm": "Built a webpage about the Belcourt Theatre and learned an intro to Git.",
+      "mood": "King ruling the castle",
+      "id": 1
     },
     {
-      "id": 2,
-      "date": "01/15/2020",
+      "date": "2020-01-15",
       "conceptsCovered": "Finished and presented first group project",
-      "longForm": "Matt C, Tyler, Cooper, & I finished our CSS/HTML project about Ricky Gervais",
-      "mood": "Duke gallivanting through the flying buttress"
-    },
-    {
-      "id": 3,
-      "date": "01/17/2020",
-      "conceptsCovered": "Javascript functions & objects",
-      "longForm": "Practiced javascript functions and objects with an example about the pope blessing Bryan and getting older",
-      "mood": "Groundskeeper maintaining the manor"
-    },
-    {
-      "date": "2020-02-05",
-      "conceptsCovered": "Lab Day All Day",
-      "longForm": "Finished Daily Journal 8 & 9 - it now can add and delete entries, and filter entries by mood",
+      "longForm": "Matt C, Tyler, Cooper, & I finished our CSS/HTML project about Ricky Gervais.",
       "mood": "Duke gallivanting through the flying buttress",
-      "id": 4
+      "id": 2
+    },
+    {
+      "date": "2020-01-17",
+      "conceptsCovered": "Javascript functions & objects",
+      "longForm": "Practiced javascript functions and objects with an example about the pope blessing Bryan and getting older.",
+      "mood": "Groundskeeper maintaining the manor",
+      "id": 3
     },
     {
       "date": "2020-01-30",
       "conceptsCovered": "Welcome to Nashville project",
-      "longForm": "Finished the API project - teamed up with Dustin, Matt B & Michael. Presented it to Andy",
+      "longForm": "Finished the API project - teamed up with Dustin, Matt B & Michael. Presented it to Andy.",
       "mood": "Duke gallivanting through the flying buttress",
       "id": 5
+    },
+    {
+      "date": "2020-02-05",
+      "conceptsCovered": "Lab Day All Day",
+      "longForm": "Finished Daily Journal 8 & 9 - it now can add and delete entries, and filter entries by mood.",
+      "mood": "Duke gallivanting through the flying buttress",
+      "id": 6
+    },
+    {
+      "date": "2020-02-07",
+      "conceptsCovered": "Snow day!",
+      "longForm": "Completed the edit data feature for Daily Journal 10. Added a scroll to top feature when the edit button is clicked. Created another feature that adds the appropriate cartoon figure to each entry based on mood. Got detailed with the styling, particularly the sizing/spacing of elements in the output boxes.",
+      "mood": "King ruling the castle",
+      "id": 7
     }
   ]
 }

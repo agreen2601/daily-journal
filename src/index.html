@@ -11,25 +11,26 @@
 
 <body>
 
-    <h1>Daily Journal</h1>
+    <h1 id = "heading">Daily Journal</h1>
 
     <form id="form">
-        <fieldset>
+        <input type="hidden" id="entryId" value="">
+        <fieldset id="dateBox">
             <label for="journalDate" class="label">Date of entry:</label>
             <input type="date" name="journalDate" id="journalDate">
         </fieldset>
 
-        <fieldset>
+        <fieldset id="conceptsBox">
             <label class="label">Concepts covered:</label>
             <input id="conceptsInput" type="text">
         </fieldset>
 
-        <fieldset>
+        <fieldset id="entryBox">
             <label class="label">Journal Entry:</label>
             <textarea id="entryInput"></textarea>
         </fieldset>
 
-        <fieldset>
+        <fieldset id="moodBox">
             <label class="mood">Mood:</label>
             <select id="mood">
                 <option value="King ruling the castle">King ruling the castle</option>
@@ -49,18 +50,19 @@
     <br></br>
 
     <div class="cartoonCollection">
-        <img class="cartoons" src="https://thumbs.dreamstime.com/z/cartoon-king-idea-happy-41818993.jpg">
-        <img class="cartoons"
+        <img id="cartoon-king" class="cartoons" 
+            src="https://thumbs.dreamstime.com/z/cartoon-king-idea-happy-41818993.jpg">
+        <img id="cartoon-duke" class="cartoons"
             src="https://s3.amazonaws.com/lowres.cartoonstock.com/caricatures-king_of_england-william_the_bastard-battle_of_hastings-monarchy-ruler-gbrn817_low.jpg">
-        <img class="cartoons"
-            src="https://img.favpng.com/13/7/20/watering-cans-gardening-gardener-bucket-png-favpng-uPYzFkzRcsKnSAhaa6k95fgZa.jpg">
-        <img class="cartoons"
+        <img id="cartoon-groundskeeper" class="cartoons"
+            src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX38485776.jpg">
+        <img id="cartoon-servant" class="cartoons"
             src="https://www.jing.fm/clipimg/full/77-772437_butler-holding-tray-servant-free-clipart.png">
-        <img class="cartoons"
+        <img id="cartoon-knight" class="cartoons"
             src="https://images.freeimages.com/images/premium/previews/4328/43287556-cartoon-knight-in-armor.jpg">
-        <img class="cartoons"
+        <img id="cartoon-peasant" class="cartoons"
             src="https://thumbs.dreamstime.com/b/farmer-grandfather-adult-rancher-old-age-man-peasant-character-cartoon-villager-isolated-flat-design-vector-illustration-farmer-109192197.jpg">
-        <img class="cartoons"
+        <img id="cartoon-prisoner" class="cartoons"
             src="https://i.pinimg.com/236x/56/4c/39/564c396ab7e88a28a617eee48d922a5b--royalty-free-clipart-art-medieval.jpg">
     </div>
 
@@ -87,6 +89,9 @@
         </div><div>
             <input type="radio" name="mood" value="Prisoner wasting away in the dungeon">
             <label>Prisoner wasting away in the dungeon</label>
+        </div><div>
+            <input type="radio" name="mood" value="Reset">
+            <label>Reset</label>
         </div>
     </fieldset>
 
@@ -94,8 +99,6 @@
 
     <article id="entriesContainer"></article>
     
-    <p id="bottom_of_page"></p>
-
     <script type="module" src="scripts/journal.js"></script>
 
 </body>

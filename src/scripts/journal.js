@@ -3,63 +3,101 @@ import renderEntries from "./entriesDOM.js";
 
 API.getEntries().then(renderEntries);
 
+// Get reference to fields in the form
 const entriesList = document.querySelector("#entriesContainer");
+const entryDateInput = document.querySelector("#journalDate");
+const entryConceptsInput = document.querySelector("#conceptsInput");
+const entryLongFormInput = document.querySelector("#entryInput");
+const entryMoodInput = document.querySelector("#mood");
+const updateButton = document.querySelector("#submit");
+const hiddenEntryId = document.querySelector("#entryId");
+const heading = document.querySelector("#heading");
+const moodRadioButtons = document.getElementsByName("mood");
 
-// First check for no blank fields - then add new entry to the DOM
+const clearForm = () => {
+  hiddenEntryId.value = "";
+  entryDateInput.value = "";
+  entryConceptsInput.value = "";
+  entryLongFormInput.value = "";
+  entryMoodInput.value = "King ruling the castle";
+};
 
-const submitEntryAddEventListener = () => {
-  const submitButton = document.getElementById("submit");
-
-  submitButton.addEventListener("click", () => {
+// Event listener first checks for no blank fields - then updates entries to the DOM
+const updateEntryAddEventListener = () => {
+  updateButton.addEventListener("click", () => {
     if (
-      document.getElementById("journalDate").value === "" ||
-      document.getElementById("entryInput").value === "" ||
-      document.getElementById("conceptsInput").value === ""
+      entryDateInput.value === "" ||
+      entryConceptsInput.value === "" ||
+      entryLongFormInput.value === ""
     ) {
       alert("You must complete the entire form you baffling mumblecrust!");
     } else {
       entriesList.innerHTML = "";
       const newJournalEntry = {
-        date: document.querySelector("#journalDate").value,
-        conceptsCovered: document.querySelector("#conceptsInput").value,
-        longForm: document.querySelector("#entryInput").value,
-        mood: document.querySelector("#mood").value
+        date: entryDateInput.value,
+        conceptsCovered: entryConceptsInput.value,
+        longForm: entryLongFormInput.value,
+        mood: entryMoodInput.value
       };
-      API.saveJournalEntry(newJournalEntry).then(() => {
-        API.getEntries().then(renderEntries);
-      });
+
+      if (hiddenEntryId.value !== "") {
+        newJournalEntry.id = parseInt(hiddenEntryId.value);
+        API.updateJournalEntry(newJournalEntry).then(() => {
+          API.getEntries()
+            .then(renderEntries)
+            .then(clearForm);
+        });
+      } else {
+        API.saveJournalEntry(newJournalEntry).then(() => {
+          API.getEntries()
+            .then(renderEntries)
+            .then(clearForm);
+        });
+      }
     }
   });
 };
 
-submitEntryAddEventListener();
+updateEntryAddEventListener();
 
 // Sort entries by mood
 
-document.getElementsByName("mood").forEach(button =>
+moodRadioButtons.forEach(button =>
   button.addEventListener("click", event => {
     const mood = event.target.value;
-    API.getEntries().then(entries => {
-      const selectedMoodArray = entries.filter(entry => entry.mood === mood);
-      entriesList.innerHTML = "";
-      renderEntries(selectedMoodArray);
-    });
+    if (mood === "Reset") {
+      API.getEntries().then(renderEntries);
+    } else {
+      API.getEntries().then(entries => {
+        const selectedMoodArray = entries.filter(entry => entry.mood === mood);
+        entriesList.innerHTML = "";
+        renderEntries(selectedMoodArray);
+      });
+    }
   })
 );
 
-//Delete entries
+// Output buttons - delete and edit
 
 entriesList.addEventListener("click", event => {
-  var check = confirm("Dost thou verily wish to forget thy past?");
-  if (check == true ) {
-    if (event.target.id.startsWith("deleteEntry-")) {
-      const eventToDelete = event.target.id.split("-")[1];
-      API.deleteEntry(eventToDelete)
+  if (event.target.id.startsWith("deleteEntry-")) {
+    const check = confirm("Dost thou verily wish to forget thy past?");
+    if (check == true) {
+      const entryToDelete = event.target.id.split("-")[1];
+      API.deleteEntry(entryToDelete)
         .then(API.getEntries)
-        .then(renderEntries);
+        .then(renderEntries)
+        .then(clearForm);
+      alert("The king remembers your wrong-doing, foolish swine!");
+    } else {
+      alert("Wise choice friend");
     }
-    alert("The king remembers your wrong-doing, foolish swine!");
-  } else {
-    alert("Wise choice friend")
+  } else if (event.target.id.startsWith("editEntry-")) {
+    const entryToEdit = event.target.id.split("-")[1];
+    API.refillEntryInputsForUpdate(entryToEdit);
+    heading.scrollIntoView();
+    alert(
+      "Speaketh of thyself as thou wish, however thou cannot verily change thy past"
+    );
   }
 });

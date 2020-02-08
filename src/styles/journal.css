@@ -1,69 +1,18 @@
-fieldset {
-  display: flex;
-  flex-direction: column;
-}
-
-#form {
-  background-color: rgb(71, 119, 173);
-}
-
-h1 {
-  text-align: center;
-  font-size: 2em;
-}
-
-.mood_radio_button {
-  line-height: 130%;
-}
-
-legend {
-  font-size: larger;
-  font-weight: 600;
-}
-
-#submit {
-  margin: 20px 0;
-  width: 100%;
-}
-
-.cartoonCollection {
-  display: flex;
-  margin-bottom: 40px;
-  justify-content: space-between;
-}
-
-.cartoons {
-  min-width: 30px;
-  height: 120px;
-}
-
 body {
   font-family: "Courier New", Courier, monospace;
 }
 
-.line {
-  height: 1px;
-  background: black;
-  width: 100%;
-}
-
-.delete_button:hover,
-#submit:hover {
-  background-color: lightgray;
-}
-
-.delete_button {
-  position: absolute;
-  right: 0;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.8em;
-  background-color: rgb(240, 240, 240);
-}
-
-.triumphs {
+#heading {
   text-align: center;
-  font-size: x-large;
-  margin: 40px 0 10px 0;
+  font-size: xx-large;
+}
+
+
+/* Form styling */
+
+#form {
+  background-color: rgb(71, 119, 173);
+  padding: 2px 0 2px 0;
 }
 
 select,
@@ -77,24 +26,143 @@ select,
   font-family: "Courier New", Courier, monospace;
 }
 
-select {
-  height: 1.5em;
+input, textarea, select {
+  border-color: black;
+  border-width: 1.5px;
 }
 
-.dateOutput,
-.moodOutput {
-  font-size: large;
+fieldset {
+  display: flex;
+  border-color: black;
 }
 
-#entryInput {
-  width: 80%;
-  height: 100px;
+#conceptsBox {
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+
+#entryBox {
+  margin-bottom: -2px;
 }
 
 #conceptsInput {
   width: 50%;
 }
 
-.options {
+#entryInput {
+  width: 80%;
+  height: 75px;
+}
+
+select {
+  height: 1.5em;
+  width: 280px;
+}
+
+
+/* Between form and output styling */
+
+#submit {
+  margin: 20px 0;
+  padding-top: 4px;
+  width: 100%;
+  border-color: black;
+  border-width: 2px;
+  background-color: rgb(240, 240, 240);
+}
+
+.cartoonCollection {
+  display: flex;
   margin-bottom: 40px;
+  justify-content: space-between;
+}
+
+.cartoons {
+  min-width: 30px;
+  height: 120px;
+}
+
+legend {
+  font-size: larger;
+  font-weight: 600;
+}
+
+.mood_radio_button {
+  border-width: 2px;
+  line-height: 130%;
+  border-color: black;
+}
+
+.triumphs {
+  text-align: center;
+  font-size: x-large;
+  margin: 40px 0 10px 0;
+}
+
+
+/* Output styling */
+
+.delete_button:hover,
+.edit_button:hover,
+#submit:hover {
+  background-color: lightgray;
+}
+
+.delete_button,
+.edit_button {
+  position: absolute;
+  right: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8em;
+  background-color: rgb(240, 240, 240);
+  border-color: black;
+  border-width: 2px;
+}
+
+.edit_button {
+  max-width: 40%;
+  font-size: .853em;
+}
+
+.delete_button {
+  max-width: 65%;
+}
+
+.dateOutput {
+  font-size: larger;
+  max-width: 41%;
+  margin-left: 5px;
+}
+
+.conceptsOutput {
+  font-size: large;
+  max-width: 68%;
+  margin-left: 5px;
+}
+
+.entryOutput {
+  max-width: 80%;
+  margin-left: 5px;
+}
+
+.moodOutput {
+  font-size: large;
+  max-width: 68%; 
+  margin-left: 5px;
+}
+
+.moodImage {
+  height: 120px;
+  float: right;
+  margin-top: -80px;
+  margin-right: 22px;
+  margin-bottom: 5px;
+}
+
+.line {
+  height: 5px;
+  border-color: black;
+  border-width: 2px;
+  width: 100%;
+  background-color: rgb(71, 119, 173);
 }
