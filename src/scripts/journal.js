@@ -1,18 +1,21 @@
 import API from "./data.js";
 import renderEntries from "./entriesDOM.js";
+import makeJournalEntryComponent from "./entryComponent.js";
 
 API.getEntries().then(renderEntries);
 
 // Get reference to fields in the form
-const entriesList = document.querySelector("#entriesContainer");
 const entryDateInput = document.querySelector("#journalDate");
 const entryConceptsInput = document.querySelector("#conceptsInput");
 const entryLongFormInput = document.querySelector("#entryInput");
 const entryMoodInput = document.querySelector("#mood");
-const updateButton = document.querySelector("#submit");
+const updateButton = document.querySelector("#update");
 const hiddenEntryId = document.querySelector("#entryId");
 const heading = document.querySelector("#heading");
 const moodRadioButtons = document.getElementsByName("mood");
+const searchField = document.querySelector(".search");
+const entriesList = document.querySelector("#entriesContainer");
+
 
 const clearForm = () => {
   hiddenEntryId.value = "";
@@ -20,6 +23,7 @@ const clearForm = () => {
   entryConceptsInput.value = "";
   entryLongFormInput.value = "";
   entryMoodInput.value = "King ruling the castle";
+  searchField.value = ""
 };
 
 // Event listener first checks for no blank fields - then updates entries to the DOM
@@ -64,6 +68,7 @@ updateEntryAddEventListener();
 
 moodRadioButtons.forEach(button =>
   button.addEventListener("click", event => {
+    clearForm();
     const mood = event.target.value;
     if (mood === "Reset") {
       API.getEntries().then(renderEntries);
@@ -90,14 +95,31 @@ entriesList.addEventListener("click", event => {
         .then(clearForm);
       alert("The king remembers your wrong-doing, foolish swine!");
     } else {
-      alert("Wise choice friend");
+      alert("Wise choice friend.");
     }
   } else if (event.target.id.startsWith("editEntry-")) {
     const entryToEdit = event.target.id.split("-")[1];
     API.refillEntryInputsForUpdate(entryToEdit);
     heading.scrollIntoView();
     alert(
-      "Speaketh of thyself as thou wish, however thou cannot verily change thy past"
+      "Speaketh of thyself as thou wish, however thou cannot verily change thy past."
     );
+  }
+});
+
+// Search keypress listener
+searchField.addEventListener("keypress", event => {
+  if (event.keyCode === 13) {
+    const searchInput = event.target.value;
+    API.getEntries().then(entries => {
+      entriesList.innerHTML = "";
+      entries.forEach(entry => {
+        for (const value of Object.values(entry)) {
+          if (typeof value === "string" && value.includes(searchInput)) {
+            entriesList.innerHTML += makeJournalEntryComponent(entry);
+          }
+        }
+      });
+    });
   }
 });

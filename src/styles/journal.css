@@ -19,16 +19,17 @@ select,
 #journalDate,
 #entryInput,
 #conceptsInput,
-#submit,
+#update,
 .label,
-.mood {
+.mood, 
+.search {
   font-size: 1em;
   font-family: "Courier New", Courier, monospace;
 }
 
 input, textarea, select {
   border-color: black;
-  border-width: 1.5px;
+  border-width: 2px;
 }
 
 fieldset {
@@ -59,10 +60,9 @@ select {
   width: 280px;
 }
 
-
 /* Between form and output styling */
 
-#submit {
+#update {
   margin: 20px 0;
   padding-top: 4px;
   width: 100%;
@@ -87,10 +87,24 @@ legend {
   font-weight: 600;
 }
 
+.mood_and_search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .mood_radio_button {
+  width: 40%;
   border-width: 2px;
   line-height: 130%;
   border-color: black;
+}
+
+.search {
+  width: 40%;
+  height: 22px;
+  margin-top: 9px;
+  border-width: 2px;
 }
 
 .triumphs {
@@ -104,7 +118,7 @@ legend {
 
 .delete_button:hover,
 .edit_button:hover,
-#submit:hover {
+#update:hover {
   background-color: lightgray;
 }
 
