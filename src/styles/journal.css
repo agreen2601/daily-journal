@@ -1,5 +1,10 @@
+:root {
+  --blue-background:   rgb(71, 119, 173);
+  --font-everywhere: "Courier New", Courier, monospace;
+}
+
 body {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-everywhere);
 }
 
 #heading {
@@ -11,7 +16,7 @@ body {
 /* Form styling */
 
 #form {
-  background-color: rgb(71, 119, 173);
+  background-color: var(--blue-background);
   padding: 2px 0 2px 0;
 }
 
@@ -21,10 +26,11 @@ select,
 #conceptsInput,
 #update,
 .label,
-.mood, 
+.mood,
+.instructor,
 .search {
   font-size: 1em;
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-everywhere);
 }
 
 input, textarea, select {
@@ -37,12 +43,8 @@ fieldset {
   border-color: black;
 }
 
-#conceptsBox {
+#conceptsBox, #moodBox {
   margin-top: -2px;
-  margin-bottom: -2px;
-}
-
-#entryBox {
   margin-bottom: -2px;
 }
 
@@ -90,7 +92,7 @@ legend {
 .mood_and_search {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .mood_radio_button {
@@ -126,7 +128,7 @@ legend {
 .edit_button {
   position: absolute;
   right: 10px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-everywhere);
   font-size: 0.8em;
   background-color: rgb(240, 240, 240);
   border-color: black;
@@ -159,7 +161,7 @@ legend {
   margin-left: 5px;
 }
 
-.moodOutput {
+.moodOutput, .instructorOutput {
   font-size: large;
   max-width: 68%; 
   margin-left: 5px;
@@ -169,8 +171,17 @@ legend {
   height: 120px;
   float: right;
   margin-top: -80px;
-  margin-right: 22px;
+  /* margin-right: 5px; */
   margin-bottom: 5px;
+}
+
+.instructorImage {
+  height: 50px;
+  float: right;
+  margin-top: -60px;
+  margin-right: -60px;
+  margin-bottom: 5px;
+  border-radius: 50px;
 }
 
 .line {
@@ -178,5 +189,5 @@ legend {
   border-color: black;
   border-width: 2px;
   width: 100%;
-  background-color: rgb(71, 119, 173);
+  background-color: var(--blue-background);
 }

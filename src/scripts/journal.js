@@ -9,6 +9,7 @@ const entryDateInput = document.querySelector("#journalDate");
 const entryConceptsInput = document.querySelector("#conceptsInput");
 const entryLongFormInput = document.querySelector("#entryInput");
 const entryMoodInput = document.querySelector("#mood");
+const entryInstructorInput = document.querySelector("#instructor");
 const updateButton = document.querySelector("#update");
 const hiddenEntryId = document.querySelector("#entryId");
 const heading = document.querySelector("#heading");
@@ -23,6 +24,7 @@ const clearForm = () => {
   entryConceptsInput.value = "";
   entryLongFormInput.value = "";
   entryMoodInput.value = "King ruling the castle";
+  entryInstructorInput.values = "Andy";
   searchField.value = ""
 };
 
@@ -34,14 +36,15 @@ const updateEntryAddEventListener = () => {
       entryConceptsInput.value === "" ||
       entryLongFormInput.value === ""
     ) {
-      alert("You must complete the entire form you baffling mumblecrust!");
+      alert("Thou must complete the entire form thou baffling mumblecrust!");
     } else {
       entriesList.innerHTML = "";
       const newJournalEntry = {
         date: entryDateInput.value,
         conceptsCovered: entryConceptsInput.value,
         longForm: entryLongFormInput.value,
-        mood: entryMoodInput.value
+        moodId: parseInt(entryMoodInput.value),
+        instructorId: parseInt(entryInstructorInput.value)
       };
 
       if (hiddenEntryId.value !== "") {
@@ -74,7 +77,7 @@ moodRadioButtons.forEach(button =>
       API.getEntries().then(renderEntries);
     } else {
       API.getEntries().then(entries => {
-        const selectedMoodArray = entries.filter(entry => entry.mood === mood);
+        const selectedMoodArray = entries.filter(entry => entry.mood.label === mood);
         entriesList.innerHTML = "";
         renderEntries(selectedMoodArray);
       });
@@ -93,7 +96,7 @@ entriesList.addEventListener("click", event => {
         .then(API.getEntries)
         .then(renderEntries)
         .then(clearForm);
-      alert("The king remembers your wrong-doing, foolish swine!");
+      alert("The king remembers thy wrong-doing, foolish swine!");
     } else {
       alert("Wise choice friend.");
     }
