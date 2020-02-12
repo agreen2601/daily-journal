@@ -8,10 +8,10 @@ let instructorBodySrc =
 const makeJournalEntryComponent = journalEntries => {
   if (journalEntries.mood.id === 1) {
     moodImageSrc = "../pictures/King.png";
-    instructorBodySrc = "../pictures/Praising.jpg";
+    instructorBodySrc = "../pictures/Praising.png";
   } else if (journalEntries.mood.id === 2) {
     moodImageSrc = "../pictures/Duke.png";
-    instructorBodySrc = "../pictures/Praising.jpg";
+    instructorBodySrc = "../pictures/Praising.png";
   } else if (journalEntries.mood.id === 3) {
     moodImageSrc = "../pictures/Groundskeeper.png";
     instructorBodySrc = "../pictures/ArmsCrossed.png";
