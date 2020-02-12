@@ -170,18 +170,25 @@ legend {
 .moodImage {
   height: 120px;
   float: right;
-  margin-top: -80px;
-  /* margin-right: 5px; */
-  margin-bottom: 5px;
+  margin-top: -65px;
+  margin-left: 40px;
 }
 
 .instructorImage {
   height: 50px;
   float: right;
-  margin-top: -60px;
+  margin-top: -65px;
   margin-right: -60px;
   margin-bottom: 5px;
   border-radius: 50px;
+  transform: rotate(10deg);
+}
+
+.instructorBodyImage {
+  height: 100px;
+  float: right;
+  margin-top: -50px;
+  margin-bottom: 5px;
 }
 
 .line {
